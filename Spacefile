@@ -1,0 +1,12 @@
+spec:
+  name: telegram-price-bot
+  services:
+    - name: bot
+      type: worker
+      runtime: python3.11
+      src: .
+      commands:
+        install: pip install -r requirements.txt
+        start: python price_bot.py
+      env:
+        TELEGRAM_BOT_TOKEN: "{{ secrets.TELEGRAM_BOT_TOKEN }}"
